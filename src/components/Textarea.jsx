@@ -54,21 +54,21 @@ export default function Textarea({ textArea }) {
             Convert to Upper Case
           </button>
           <button
-            className="btn btn-primary my-2 mx-2"
+            className="btn btn-success my-2 mx-2"
             onClick={handleLowerCase}
           >
             Convert to Lower Case
           </button>
           <button
-            className="btn btn-primary my-2 mx-2"
+            className="btn btn-danger my-2 mx-2"
             onClick={handleCapitalize}
           >
             Convert to Capitalize Case
           </button>
-          <button className="btn btn-primary my-2 mx-2" onClick={handleClearText}>
+          <button className="btn btn-warning my-2 mx-2" onClick={handleClearText}>
             Clear Text
           </button>
-          <button className="btn btn-primary my-2 mx-2" onClick={handleCopyClipboard}>
+          <button className="btn btn-info my-2 mx-2" onClick={handleCopyClipboard}>
             Copy to Clipboard
           </button>
         </div>
