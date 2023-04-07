@@ -42,7 +42,7 @@ export default function Textarea({ textArea }) {
           <textarea
             className="form-control"
             id="myTextArea"
-            rows="8"
+            rows="5"
             value={text}
             onChange={handleChangeState}
             placeholder="Enter Text Here"
