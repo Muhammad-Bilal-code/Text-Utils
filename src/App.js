@@ -14,7 +14,7 @@ function App() {
     <>
       <Navbar logo={logo} home={home} about={about} />
       {/* <Navbar /> */}
-      <Textarea textArea = "Enter Your Text Below"
+      <Textarea textArea = "Text - Utils"
       
       />
     </>
