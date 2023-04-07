@@ -3,7 +3,6 @@ import React, { useState } from "react";
 export default function Textarea({ textArea }) {
   const [text, setText] = useState("");
 
-
   const handleUpperCase = (e) => {
     setText(text.toLocaleUpperCase());
     // setIsUpper(true)
@@ -13,10 +12,11 @@ export default function Textarea({ textArea }) {
   };
   const handleCapitalize = () => {
     let capText = text.split(" ");
-    capText = capText.map((elm) => elm.slice(0, 1).toUpperCase() + elm.slice(1).toLowerCase());
+    capText = capText.map(
+      (elm) => elm.slice(0, 1).toUpperCase() + elm.slice(1).toLowerCase()
+    );
     setText(capText.join(" "));
   };
-  
 
   const handleChangeState = (e) => {
     setText(e.target.value.replace(/\s+/g, " "));
@@ -27,9 +27,10 @@ export default function Textarea({ textArea }) {
     // setText(e.target.value);
   };
   const handleCopyClipboard = () => {
-    navigator.clipboard.writeText(text)
+    navigator.clipboard
+      .writeText(text)
       .then(() => console.log("Text copied to clipboard"))
-      .catch(err => console.error("Could not copy text: ", err));
+      .catch((err) => console.error("Could not copy text: ", err));
   };
 
   return (
@@ -65,20 +66,22 @@ export default function Textarea({ textArea }) {
           >
             Convert to Capitalize Case
           </button>
-          <button className="btn btn-warning my-2 mx-2" onClick={handleClearText}>
+          <button
+            className="btn btn-warning my-2 mx-2"
+            onClick={handleClearText}
+          >
             Clear Text
           </button>
-          <button className="btn btn-info my-2 mx-2" onClick={handleCopyClipboard}>
+          <button
+            className="btn btn-info my-2 mx-2"
+            onClick={handleCopyClipboard}
+          >
             Copy to Clipboard
           </button>
         </div>
         <div className="text-summary">
           <h2>Text Summary</h2>
-          
-          {(text.length === 0) ?"0 words ":text.split(" ").length + " words "} 
-          
-          
-          
+          {text.length === 0 ? "0 words " : text.split(" ").length + " words "}
           {text.length} characters
         </div>
         <div className="text-Preview">
