@@ -6,7 +6,17 @@
   height: 40vmin;
   pointer-events: none;
 }
-
+#home-page>h2, #about-page>h2,#error404-page>h2,#error404-page>h4 {
+  text-align: center;
+  margin-top: 20px;
+}
+div#error404-page {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
