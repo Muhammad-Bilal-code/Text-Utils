@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-
+import { useFormik } from 'formik';
+import * as yup from 'yup';
 export default function Textarea({ textArea }) {
   const [text, setText] = useState("");
 
@@ -44,6 +45,26 @@ export default function Textarea({ textArea }) {
   const handleBlur = ()=>{
     setText(text.trim())
   }
+
+  const validationSchema = yup.object({
+    textArea: yup
+      .string('Enter your email')
+      // .email('Enter a valid email')
+      .required('Text is required'),
+  });
+
+  const formik = useFormik({
+    initialValues: {
+        textArea : ""
+    },
+    validationSchema: validationSchema,
+    onSubmit: (values) => {
+      alert(JSON.stringify(values, null, 2));
+    },
+  });
+
+
+
   return (
     <>
       <div class="container my-3">
@@ -55,11 +76,13 @@ export default function Textarea({ textArea }) {
             className="form-control"
             id="myTextArea"
             rows="5"
-            value={text}
+            value={formik.values.text}
             onChange={handleChangeState}
             onBlur={handleBlur}
             placeholder="Enter Text Here"
+            name = "textArea"
           ></textarea>
+          <span>{formik.touched.email && Boolean(formik.errors.textArea)}</span>
           <button
             className="btn btn-primary my-2 mx-2"
             onClick={handleUpperCase}
