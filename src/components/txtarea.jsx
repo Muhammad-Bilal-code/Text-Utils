@@ -18,10 +18,19 @@ export default function Textarea({ textArea }) {
     setText(capText.join(" "));
   };
 
+  
   const handleChangeState = (e) => {
-    setText(e.target.value.replace(/\s+/g, " "));
-    // setText(e.target.value);
+    // console.log(text)
+    if(e.target.value[0] === " "){
+      // alert("test")
+      setText(e.target.value.replace(/\s+/g,""))
+    }
+    else{
+      setText(e.target.value.replace(/\s+/g," "))
+    }
+    // console.log(text)
   };
+  // console.log(text)
   const handleClearText = (e) => {
     setText("");
     // setText(e.target.value);
@@ -32,7 +41,9 @@ export default function Textarea({ textArea }) {
       .then(() => console.log("Text copied to clipboard"))
       .catch((err) => console.error("Could not copy text: ", err));
   };
-
+  const handleBlur = ()=>{
+    setText(text.trim())
+  }
   return (
     <>
       <div class="container my-3">
@@ -46,6 +57,7 @@ export default function Textarea({ textArea }) {
             rows="5"
             value={text}
             onChange={handleChangeState}
+            onBlur={handleBlur}
             placeholder="Enter Text Here"
           ></textarea>
           <button
