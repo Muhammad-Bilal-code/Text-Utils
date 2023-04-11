@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useFormik } from 'formik';
-import * as yup from 'yup';
+// import * as yup from 'yup';
 export default function Textarea({ textArea }) {
   const [text, setText] = useState("");
 
@@ -22,13 +22,16 @@ export default function Textarea({ textArea }) {
   
   const handleChangeState = (e) => {
     // console.log(text)
-    if(e.target.value[0] === " "){
-      // alert("test")
-      setText(e.target.value.replace(/\s+/g,""))
-    }
-    else{
-      setText(e.target.value.replace(/\s+/g," "))
-    }
+    // if(e.target.value[0] === " "){
+    //   // alert("test")
+    //   setText(e.target.value.replace(/\s+/g,""))
+    // }
+    // else{
+    //   setText(e.target.value.replace(/\s+/g," "))
+    // }
+      setText(e.target.value)
+      console.log(text.split(" "))
+
     // console.log(text)
   };
   // console.log(text)
@@ -46,22 +49,33 @@ export default function Textarea({ textArea }) {
     setText(text.trim())
   }
 
-  const validationSchema = yup.object({
-    textArea: yup
-      .string('Enter your email')
-      // .email('Enter a valid email')
-      .required('Text is required'),
-  });
+  const handleExtraSpaces = ()=>{
+    let newTextWitoutSpaces = text.split(/[ ]+/)
+    // console.log(newTextWitoutSpaces)
+    // newTextWitoutSpaces = newTextWitoutSpaces.filter((elm)=>{
+    //   return elm !== "\n"
+    // })
+    console.log(newTextWitoutSpaces)
+    newTextWitoutSpaces = newTextWitoutSpaces.join(" ")
+    setText(newTextWitoutSpaces)
+  }
 
-  const formik = useFormik({
-    initialValues: {
-        textArea : ""
-    },
-    validationSchema: validationSchema,
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-    },
-  });
+  // const validationSchema = yup.object({
+  //   textArea: yup
+  //     .string('Enter your email')
+  //     // .email('Enter a valid email')
+  //     .required('Text is required'),
+  // });
+
+  // const formik = useFormik({
+  //   initialValues: {
+  //       textArea : ""
+  //   },
+  //   validationSchema: validationSchema,
+  //   onSubmit: (values) => {
+  //     alert(JSON.stringify(values, null, 2));
+  //   },
+  // });
 
 
 
@@ -76,13 +90,25 @@ export default function Textarea({ textArea }) {
             className="form-control"
             id="myTextArea"
             rows="5"
-            value={formik.values.text}
+            // value={formik.values.text}
+            value={text}
+            onChange={handleChangeState}
+            // onBlur={handleBlur}
+            placeholder="Enter Text Here"
+            name = "textArea"
+          ></textarea>
+          {/* <textarea
+            className="form-control"
+            id="myTextArea"
+            rows="5"
+            // value={formik.values.text}
+            value={text}
             onChange={handleChangeState}
             onBlur={handleBlur}
             placeholder="Enter Text Here"
             name = "textArea"
-          ></textarea>
-          <span>{formik.touched.email && Boolean(formik.errors.textArea)}</span>
+          ></textarea> */}
+          {/* <span>{formik.touched.email && Boolean(formik.errors.textArea)}</span> */}
           <button
             className="btn btn-primary my-2 mx-2"
             onClick={handleUpperCase}
@@ -112,6 +138,12 @@ export default function Textarea({ textArea }) {
             onClick={handleCopyClipboard}
           >
             Copy to Clipboard
+          </button>
+          <button
+            className="btn btn-info my-2 mx-2"
+            onClick={handleExtraSpaces}
+          >
+            Remove Extra Spaces
           </button>
         </div>
         <div className="text-summary">
