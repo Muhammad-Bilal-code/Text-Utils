@@ -30,7 +30,7 @@ export default function Textarea({ textArea }) {
     //   setText(e.target.value.replace(/\s+/g," "))
     // }
       setText(e.target.value)
-      console.log(text.split(" "))
+      console.log(e.target.value.split(" "))
 
     // console.log(text)
   };
@@ -50,13 +50,29 @@ export default function Textarea({ textArea }) {
   }
 
   const handleExtraSpaces = ()=>{
+
+    // method 01
     let newTextWitoutSpaces = text.split(/[ ]+/)
+    console.log(newTextWitoutSpaces)
+    newTextWitoutSpaces = newTextWitoutSpaces.filter((elm)=>{
+      return elm != ""
+    })
+    console.log(newTextWitoutSpaces)
+    
+    // method 02
+    // let newTextWitoutSpaces = text.split(" ")
     // console.log(newTextWitoutSpaces)
     // newTextWitoutSpaces = newTextWitoutSpaces.filter((elm)=>{
-    //   return elm !== "\n"
+    //   return elm != ""
     // })
-    console.log(newTextWitoutSpaces)
+    // console.log(newTextWitoutSpaces)
+  
+  
+  
     newTextWitoutSpaces = newTextWitoutSpaces.join(" ")
+    console.log(newTextWitoutSpaces)
+    // newTextWitoutSpaces = newTextWitoutSpaces.trim()
+    // console.log(newTextWitoutSpaces)
     setText(newTextWitoutSpaces)
   }
 
