@@ -22,15 +22,19 @@ export default function Textarea({ textArea }) {
   
   const handleChangeState = (e) => {
     // console.log(text)
-    // if(e.target.value[0] === " "){
-    //   // alert("test")
-    //   setText(e.target.value.replace(/\s+/g,""))
-    // }
-    // else{
-    //   setText(e.target.value.replace(/\s+/g," "))
-    // }
+    if(e.target.value[0] === " "){
+      // alert("test")
+      setText(e.target.value.replace(/\s+/g,""))
+    }
+    else{
       setText(e.target.value)
+      // setText(e.target.value.replace(/\s+/g," "))
+    }
+      // setText(e.target.value)
       console.log(e.target.value.split(" "))
+      console.log(e.target.value.split(" ").length)
+      console.log(e.target.value.split(/\s+/g))
+      console.log(e.target.value.split(/\s+/g).length)
 
     // console.log(text)
   };
@@ -52,12 +56,13 @@ export default function Textarea({ textArea }) {
   const handleExtraSpaces = ()=>{
 
     // method 01
-    let newTextWitoutSpaces = text.split(/[ ]+/)
+    let newTextWitoutSpaces = text.split(/\s+/)
     console.log(newTextWitoutSpaces)
     newTextWitoutSpaces = newTextWitoutSpaces.filter((elm)=>{
       return elm != ""
     })
     console.log(newTextWitoutSpaces)
+    // console.log(newTextWitoutSpaces.length)
     
     // method 02
     // let newTextWitoutSpaces = text.split(" ")
@@ -71,6 +76,8 @@ export default function Textarea({ textArea }) {
   
     newTextWitoutSpaces = newTextWitoutSpaces.join(" ")
     console.log(newTextWitoutSpaces)
+    // newTextWitoutSpaces = newTextWitoutSpaces.replace(/\ss+/g," ")
+    // console.log(newTextWitoutSpaces)
     // newTextWitoutSpaces = newTextWitoutSpaces.trim()
     // console.log(newTextWitoutSpaces)
     setText(newTextWitoutSpaces)
@@ -164,7 +171,7 @@ export default function Textarea({ textArea }) {
         </div>
         <div className="text-summary">
           <h2>Text Summary</h2>
-          {text.length === 0 ? "0 words " : text.split(" ").length + " words "}
+          {text.length === 0 ? "0 words " : text.split(/\s+/g).length + " words "}
           {text.length} characters
         </div>
         <div className="text-Preview">

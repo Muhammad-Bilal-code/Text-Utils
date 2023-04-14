@@ -2,9 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export const Navbar = (props) => {
+
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary ">
+      <nav className="navbar navbar-expand-lg bg-body-tertiary " data-bs-theme={`${props.mode?"dark":"light"}`}>
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
             {props.logo}
@@ -24,15 +25,31 @@ export const Navbar = (props) => {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 {/* <a className="nav-link active" aria-current="page" href="/"> */}
-                <Link className="nav-link active" to="/Home">{props.home}</Link>            
+                <Link className="nav-link active" to="/Home">
+                  {props.home}
+                </Link>
                 {/* </a> */}
               </li>
               <li className="nav-item">
                 {/* <a className="nav-link" href="/"> */}
-                <Link className="nav-link" to="/About">{props.about}</Link>            
+                <Link className="nav-link" to="/About">
+                  {props.about}
+                </Link>
                 {/* </a> */}
               </li>
             </ul>
+            <div class="form-check form-switch">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                role="switch"
+                id="flexSwitchCheckDefault"
+                onClick={props.handleChangeMode}
+              />
+              <label className={`form-check-label ${props.mode?"my-txt-color-white":"my-txt-color-black"}`} HTMLfor="flexSwitchCheckDefault">
+                {`Enable ${props.mode?"light":"dark"} Mode`}
+              </label>
+            </div>
             <form className="d-flex" role="search">
               <input
                 className="form-control me-2"

@@ -11,11 +11,19 @@ function App() {
   const [logo, setlogo] = useState("TextUtils");
   const [navMenu, setNavMenu] = useState(["Home", "About"]);
 
+  const [mode, setMode] = useState(false)
+
+  const handleChangeMode = ()=>{
+      setMode(!mode)
+      // console.log(mode)
+    }
+    console.log(mode)
+
   const [home, about] = navMenu;
 
   return (
     <>
-      <Navbar logo={logo} home={home} about={about} />
+      <Navbar logo={logo} home={home} about={about} handleChangeMode = {handleChangeMode} mode={mode}/>
       {/* <Navbar /> */}
       
       
