@@ -19,9 +19,9 @@ function App() {
     }
     else{
       document.body.style.backgroundColor = "#192750"
-
+      
     }
-      setMode(!mode)
+    setMode(!mode)
       // console.log(mode)
     }
     console.log(mode)
