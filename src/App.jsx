@@ -18,7 +18,7 @@ function App() {
       document.body.style.backgroundColor = "white"
     }
     else{
-      document.body.style.backgroundColor = "grey"
+      document.body.style.backgroundColor = "#192750"
 
     }
       setMode(!mode)

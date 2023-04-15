@@ -119,7 +119,7 @@ export default function Textarea({ textArea,mode }) {
             // onBlur={handleBlur}
             placeholder="Enter Text Here"
             name = "textArea"
-            style={{backgroundColor:mode?"grey":"white",color:mode?"white":"black"}}
+            style={{backgroundColor:mode?"#192750":"white",color:mode?"white":"black"}}
           ></textarea>
           {/* <textarea
             className="form-control"
@@ -177,7 +177,7 @@ export default function Textarea({ textArea,mode }) {
         </div>
         <div className="text-Preview">
           <h2>Text Preview</h2>
-          {text}
+          {text.length>0?text:"Enter your text"}
         </div>
       </div>
     </>
