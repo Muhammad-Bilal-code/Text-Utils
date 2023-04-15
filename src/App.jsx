@@ -14,6 +14,13 @@ function App() {
   const [mode, setMode] = useState(false)
 
   const handleChangeMode = ()=>{
+    if(mode === true){
+      document.body.style.backgroundColor = "white"
+    }
+    else{
+      document.body.style.backgroundColor = "grey"
+
+    }
       setMode(!mode)
       // console.log(mode)
     }
@@ -30,7 +37,7 @@ function App() {
 
 <Routes>
   <Route path="/" element = {<Home/>}></Route>
-  <Route path="/Home" element = {<Home/>}></Route>
+  <Route path="/Home" element = {<Home mode = {mode}/>}></Route>
   <Route path="/About" element = {<About/>}></Route>
   <Route path="*" element = {<Error404/>}></Route>
 </Routes>

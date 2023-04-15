@@ -17,10 +17,10 @@ div#error404-page {
   right: 0;
   transform: translateY(-50%);
 }
-my-txt-color-black{
+.my-txt-color-black{
   color: black !important;
 }
-my-txt-color-white{
+.my-txt-color-white{
   color: white !important;
 }
 @media (prefers-reduced-motion: no-preference) {

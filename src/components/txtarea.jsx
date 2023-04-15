@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useFormik } from 'formik';
 // import * as yup from 'yup';
-export default function Textarea({ textArea }) {
+export default function Textarea({ textArea,mode }) {
   const [text, setText] = useState("");
 
   const handleUpperCase = (e) => {
@@ -104,7 +104,7 @@ export default function Textarea({ textArea }) {
 
   return (
     <>
-      <div class="container my-3">
+      <div class="container my-3" >
         <div className="mb-3">
           <label for="myTextArea" className="form-label">
             {textArea}
@@ -119,6 +119,7 @@ export default function Textarea({ textArea }) {
             // onBlur={handleBlur}
             placeholder="Enter Text Here"
             name = "textArea"
+            style={{backgroundColor:mode?"grey":"white",color:mode?"white":"black"}}
           ></textarea>
           {/* <textarea
             className="form-control"
