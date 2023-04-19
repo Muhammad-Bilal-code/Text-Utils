@@ -11,18 +11,29 @@ import Alert from "./components/alert";
 function App() {
   const [logo, setlogo] = useState("TextUtils");
   const [navMenu, setNavMenu] = useState(["Home", "About"]);
-  const [alert, setAlert] = useState("")
+  const [alert, setAlert] = useState(null)
 
   const [mode, setMode] = useState(false)
 
+  const handleShowAlert = (message,type)=>{
+    setAlert({
+      message : message,
+      type : type
+    })
+  }
+
   const handleChangeMode = ()=>{
     if(mode === true){
+      // setMode(!mode)
       document.body.style.backgroundColor = "white"
-      setAlert("Dark Mode Enabled Successfully")
+      // setAlert("Light Mode Enabled Successfully")
+      handleShowAlert("Light Mode Enabled","success")
     }
     else{
       document.body.style.backgroundColor = "#192750"
-      setAlert("Light Mode Enabled Successfully")
+      // setAlert("Dark Mode Enabled Successfully")
+      handleShowAlert("Dark Mode Enabled","success")
+      // setMode(!mode)
       
     }
     setMode(!mode)
