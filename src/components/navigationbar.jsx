@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export const Navbar = (props) => {
-
+// console.log(props.mode)
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary " data-bs-theme={`${props.mode?"dark":"light"}`}>
