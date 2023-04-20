@@ -1,9 +1,10 @@
 import React from "react";
 
-export default function About() {
+export default function About(props) {
+  console.log(props)
   return (
     <div id="about-page" className="container">
-      <h2>This is my about</h2>
+      <h2 style={{color : props.mode?"white":"black"}}>This is my about</h2>
       <div class="accordion" id="accordionExample">
         <div class="accordion-item">
           <h2 class="accordion-header">
@@ -96,7 +97,7 @@ export default function About() {
           </div>
         </div>
       </div>
-      <button type="button" className="btn btn-light my-3">Enable Dark Mode</button>
+      {/* <button type="button" className="btn btn-light my-3">Enable Dark Mode</button> */}
     </div>
   );
 }
