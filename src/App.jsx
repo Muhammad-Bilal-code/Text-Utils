@@ -29,11 +29,13 @@ function App() {
       document.body.style.backgroundColor = "white"
       // setAlert("Light Mode Enabled Successfully")
       handleShowAlert("Light Mode Enabled","success")
+      document.title = "Text Utils Light Mode"
     }
     else{
       document.body.style.backgroundColor = "#192750"
       // setAlert("Dark Mode Enabled Successfully")
       handleShowAlert("Dark Mode Enabled","success")
+      document.title = "Text Utils Dark Mode"
       // setMode(!mode)
       
     }
