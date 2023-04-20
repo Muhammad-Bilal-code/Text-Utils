@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 export const Navbar = (props) => {
 // console.log(props.mode)
+// console.log(props.greenMode)
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary " data-bs-theme={`${props.mode?"dark":"light"}`}>
@@ -48,6 +49,18 @@ export const Navbar = (props) => {
               />
               <label className={`form-check-label ${props.mode?"my-txt-color-white":"my-txt-color-black"}`} HTMLfor="flexSwitchCheckDefault">
                 {`Enable ${props.mode?"light":"dark"} Mode`}
+              </label>
+            </div>
+            <div class="form-check form-switch">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                role="switch"
+                id="flexSwitchCheckDefault"
+                onClick={props.handleGreenMode}
+              />
+              <label className={`form-check-label ${props.mode?"my-txt-color-white":"my-txt-color-black"}`} HTMLfor="flexSwitchCheckDefault">
+                {`Enable ${props.greenMode?"light":"green"} Mode`}
               </label>
             </div>
             <form className="d-flex" role="search">

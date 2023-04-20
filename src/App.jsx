@@ -14,14 +14,14 @@ function App() {
   const [alert, setAlert] = useState(null)
 
   const [mode, setMode] = useState(false)
-
+  
   const handleShowAlert = (message,type)=>{
     setAlert({
       message : message,
       type : type
     })
   }
-
+  
   const handleChangeMode = ()=>{
     setMode(!mode)
     if(mode === true){
@@ -40,12 +40,24 @@ function App() {
     // setMode(!mode)
     // console.log(mode)
   }
-
+  
+  const [greenMode, setGreenMode] = useState(false)
+  const handleGreenMode = ()=>{
+    setGreenMode(!greenMode)
+    if(greenMode === false){
+      document.body.style.backgroundColor = "green"
+    }
+    else{
+      document.body.style.backgroundColor = "white"
+    }
+    
+  }
+  
   const [home, about] = navMenu;
 
   return (
     <>
-      <Navbar logo={logo} home={home} about={about} handleChangeMode = {handleChangeMode} mode={mode}/>
+      <Navbar logo={logo} home={home} about={about} handleChangeMode = {handleChangeMode} handleGreenMode = {handleGreenMode} mode={mode} greenMode = {greenMode}/>
       <Alert alert = {alert}/>
       {/* <Navbar /> */}
       
